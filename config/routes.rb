@@ -4,19 +4,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  # これです
+  get '/', to: 'posts#index', as: 'index_post'
 
   # PostsController
-  get '/', to: 'posts#index', as: 'index_post'
   get 'posts/new', to: 'posts#new', as: 'new_post'
-  # この行を追加
   post 'posts/new', to: 'posts#create', as: 'create_post'
 
   # TopicsController
   get 'topics/new', to: 'topics#new', as: 'new_topic'
-  get 'topics/edit/:id', to: 'topics#edit', as: 'edit_topics'
-  # 課題３で追加
-  post 'topics/new', to: 'topics#create', as: 'create_topics'
-  # 課題６で追加
-  post 'topics/edit', to: 'topics#update', as: 'update_topics'
-  
+  post '/topics/new', to: 'topics#create', as: 'create_topic'
+  get 'topics/edit/:id', to: 'topics#edit', as: 'edit_topic'
+  post '/topics/edit/:id', to: 'topics#update', as: 'update_topic'
+
 end
